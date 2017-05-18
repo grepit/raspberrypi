@@ -14,7 +14,7 @@ app.get('/', function (req, res) {
 
 
 app.get('/see/', function(req, res) {
-exec('. /home/pi/webcam/show/record.sh',
+exec('./record.sh',
   function (error, stdout, stderr) {
     console.log('stdout: ' + stdout);
     console.log('stderr: ' + stderr);
@@ -25,7 +25,7 @@ exec('. /home/pi/webcam/show/record.sh',
 
 setTimeout(function() { var cur = + new Date();
 console.log(cur);
-res.send('<html><body><p><font size="12"><a href="http://192.168.0.198:3000/show?='+cur+'"'+'> show </a></font></p> </body></html>');  }, 10000);
+res.send('<html> <head> <title>see</title> <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> </head><body><p> </br></br></br></br> </br> </br> </br> <center><font size="12"><a  class="w3-btn w3-green" href="http://192.168.0.198:3000/show?='+cur+'"'+'> Click to See Him <img src="http://192.168.0.198:3000/public/camera.svg" alt="Mountain View" style="width:100px;height:50px;"></a> </center></font></p> </body></html>');  }, 10000);
 })
 
 
@@ -56,7 +56,7 @@ function sendContent(req, res) {
 
 }
 
- 
+console.log("go to browser :192.168.0.198:3000/see "); 
 
 
 app.listen(3000);
